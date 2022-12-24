@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Записать{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Записать имя</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        {{form.title}}<br>
+        {{form.full_text}}<br>
+        {{form.date}}<br>
+
+        <span>{{ error }}</span>
+        <button class="button">Добавить запись</button>
+
+    </form>
+</div>
+
+{% endblock %}

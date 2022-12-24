@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Ваши записи{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Ваши записи</h1>
+    
+    <div class="six">
+        {% if app %}
+            {% for el in app %}
+                <div class="six-one">
+                    <h3>{{el.title}}</h3>
+                    <p>{{el.full_text}}</p>
+                    <p>{{el.date}}</p>
+                    <a href="{% url 'detail' el.id %}">Изменить</a>
+                </div>
+            {% endfor %}
+        {% else %}
+        <h1>У вас нет записей!</h1>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}
